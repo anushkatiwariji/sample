@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="{% static 'webapp/style.css' %}">
+    <link rel="stylesheet" href="css/blogpost.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <title>iBlog - Heaven for bloggers</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto">
+        <div class="nav-left">
+            <a href="/">
+                <span><img src="img/vblog logo.jpg" width="94px" alt="" ></span>
+            </a>
+            <ul>
+                <!-- <li><a href="/">Home</a></li>
+                <li><a href="#">About</a></li> -->
+                <!-- <li><a href="/contact.html">Contact</a></li> -->
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="{% url 'blogpage' %}" method="get">
+                <input class="form-input" type="text" name="query" placeholder="Article Search">
+                <button class="btn">Search</button>
+            </form>
+
+        </div>
+
+    </nav>
+    <div class="max-width-1 m-auto">
+        <hr>
+    </div>
+    <div class="post-img">
+        <img src="https://static2.bigstockphoto.com/7/4/3/large1500/347459281.jpg" alt="">
+    </div>
+    <div class="m-auto blog-post-content max-width-2 m-auto my-2">
+        <h1 class="font1">SPORTS BLOG</h1>
+        <div class="blogpost-meta">
+            <div class="author-info">
+                <div>
+                <b>
+                  Author - JONATHAN LIEW
+                </b>
+                </div>
+                <div>17 SEPTEMBER. 1 hr read</div>
+            </div>
+            <div class="social">
+                <svg width="29" height="29" class="hk"><path d="M22.05 7.54a4.47 4.47 0 0 0-3.3-1.46 4.53 4.53 0 0 0-4.53 4.53c0 .35.04.7.08 1.05A12.9 12.9 0 0 1 5 6.89a5.1 5.1 0 0 0-.65 2.26c.03 1.6.83 2.99 2.02 3.79a4.3 4.3 0 0 1-2.02-.57v.08a4.55 4.55 0 0 0 3.63 4.44c-.4.08-.8.13-1.21.16l-.81-.08a4.54 4.54 0 0 0 4.2 3.15 9.56 9.56 0 0 1-5.66 1.94l-1.05-.08c2 1.27 4.38 2.02 6.94 2.02 8.3 0 12.86-6.9 12.84-12.85.02-.24 0-.43 0-.65a8.68 8.68 0 0 0 2.26-2.34c-.82.38-1.7.62-2.6.72a4.37 4.37 0 0 0 1.95-2.51c-.84.53-1.81.9-2.83 1.13z"></path></svg>
+
+                <svg style="background: black;
+                border-radius: 21px;" width="29" height="29" viewBox="0 0 29 29" fill="none" class="hk"><path d="M5 6.36C5 5.61 5.63 5 6.4 5h16.2c.77 0 1.4.61 1.4 1.36v16.28c0 .75-.63 1.36-1.4 1.36H6.4c-.77 0-1.4-.6-1.4-1.36V6.36z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.76 20.9v-8.57H7.89v8.58h2.87zm-1.44-9.75c1 0 1.63-.65 1.63-1.48-.02-.84-.62-1.48-1.6-1.48-.99 0-1.63.64-1.63 1.48 0 .83.62 1.48 1.59 1.48h.01zM12.35 20.9h2.87v-4.79c0-.25.02-.5.1-.7.2-.5.67-1.04 1.46-1.04 1.04 0 1.46.8 1.46 1.95v4.59h2.87v-4.92c0-2.64-1.42-3.87-3.3-3.87-1.55 0-2.23.86-2.61 1.45h.02v-1.24h-2.87c.04.8 0 8.58 0 8.58z" fill="#fff"></path></svg>
+
+                <svg width="29" height="29" class="hk"><path d="M23.2 5H5.8a.8.8 0 0 0-.8.8V23.2c0 .44.35.8.8.8h9.3v-7.13h-2.38V13.9h2.38v-2.38c0-2.45 1.55-3.66 3.74-3.66 1.05 0 1.95.08 2.2.11v2.57h-1.5c-1.2 0-1.48.57-1.48 1.4v1.96h2.97l-.6 2.97h-2.37l.05 7.12h5.1a.8.8 0 0 0 .79-.8V5.8a.8.8 0 0 0-.8-.79"></path></svg>
+
+            </div>
+        </div>
+         <p class="font1">Danger lies ahead if the game follows the men’s lead and ends up locked in a toxifying money-driven arms race to the top
+            After joyous summer English women’s football faces a battle for its soul
+         </p>
+         <p class="font1">rule number one of English football: when Leah Williamson tells you to do something, you do it. Particularly when she is screaming it at you over the din over 90,000 supporters at Wembley. “We want them to come to WSL games!” she yelled of the 17 million viewers watching the triumphant climax of the Euro 2022 final on the BBC.</p>
+         <p class="font1">Happily, the public have taken Williamson’s advice to heart. Something has changed here. On Friday night, Arsenal and Brighton kicked off the new Super League season with a sell-out at Meadow Park. Manchester City have already sold 20,000 tickets for their derby against Manchester United in December.</p>
+         <p class="font1">But further down the pyramid, where salaries are barely liveable and training invariably has to fit around work, you hear a very different perspective on growth. “What is the purpose?” asks Maggie Murphy, CEO of Lewes FC. “Is it just entertainment, is it a business? Because if so, then at some point Lewes FC will fall off and die. If decisions are made that just require more and more money on unfeasibly short timelines, we won’t be able to keep up. So for us, it’s an existential question.”.</p>
+         <p class="font1">the UK to split it equally between men’s and women’s sides. Attendances have quadrupled in three seasons. If you wanted to design and run a women’s football club from scratch, Lewes would be your starting point.</p>
+          <p class="font1">The FA would retain a share for three years, but ultimately leave the future in the hands of the biggest women’s clubs, which to an increasing degree also happen to be the biggest men’s clubs.</p>
+
+
+    </div>
+
+
+
+
+    <div class="max-width-1 m-auto"><hr></div>
+    <div class="home-articles max-width-1 m-auto font2">
+        <h2>People who read this also read</h2>
+        <div class="row">
+
+       
+        <div class="home-article more-post">
+            <div class="home-article-img">
+                <img src="data:image/jpeg;base64,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".jpg  alt="article">
+                </div>
+            <div class="home-article-content font1 center">
+                <a href="/blogpost.html"><h3>Best Football Blogs – 2022
+                    We thought we’d start our list of the best sport blogs with the most popular sport in the world, but we’ll get to golf later on and start with the best football blogs instead.</h3></a>
+                
+                <div>lionel messi</div>
+                <span>10 april | 6 min read</span>/
+            </div>
+        </div>
+
+        <div class="home-article more-post">
+            <div class="home-article-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDbva68mPeDRe0X059Csp_0uzEp_yEb-nY3w&usqp=CAU.jpg" alt="alternate"></div>
+            <div class="home-article-content font1 center">
+                <a href="/blogpost.html"><h3>Tennis Blogs 2022 Next up on our list of the best sports blogs is tennis.</h3></a>
+                
+                <div>roger federer</div>
+                <span>03 march | 9 min read</span>
+            </div>
+        </div>
+
+        <div class="home-article more-post">
+            <div class="home-article-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKpNeo76UYEJXNvNx6ADaFw69A5vQ85H-bDA&usqp=CAU.jpg" alt="alternate"></div>
+            <div class="home-article-content font1 center">
+                <a href="/blogpost.html"><h3>Best Horse Racing Blogs 2022
+                    Horse racing is possibly the most researched sport due to the high levels of betting activity that takes place. Therefore finding a reliable blog that will give trustworthy news, statistics, race calendars and real-time results is important for many horse racing fans.
+                  Bringing you the latest race highlights, news, and stats Racing Post is an ideal hub of information for the racing fan.</h3></a>
+                
+                <div>tiger woods</div>
+                <span>09 June| 4 min read</span>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+
+     
+    </div>
+</body>
+</html>

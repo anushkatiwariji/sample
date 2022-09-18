@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+   <style>
+    
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+
+
+
+body {
+color: #18863d;
+}
+
+.img-box img {
+width: 100%;
+height: 100%;
+}
+
+.icon{
+  color: yellow;
+width: 20px;
+padding: 5px; 
+}
+.icon :hover{
+  color: red;
+}
+
+section {
+position: relative;
+min-height: 100vh;
+background-color: lightblue;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: 0.5;
+}
+
+section.active {
+background-color: lightpink;
+}
+
+section .container {
+position: relative;
+width: 900px;
+height: 500px;
+background-color: white;
+box-shadow: 0 10px 40px black;
+overflow: hidden;
+}
+
+section .user {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+}
+
+section .img-box {
+position: relative;
+width: 50%;
+height: 100%;
+transition: all 500ms ease-in-out;
+}
+
+section .img-box img {
+object-fit: cover;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+section .form-box {
+position: relative;
+width: 50%;
+height: 100%;
+background-color: white;
+transition: 500ms ease-in-out;
+}
+
+section .form-box .top {
+position: absolute;
+top: 14px;
+right: 14px;
+}
+
+section .form-box .top p {
+font-size: 13px;
+}
+
+section .form-box .top span {
+color: greenyellow;
+cursor: pointer;
+}
+
+section form {
+position: absolute;
+top: 55%;
+left: 50%;
+width: 100%;
+max-width: 300px;
+transform: translate(-50%, -50%);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+section form .form-control:first-child {
+text-align: center;
+}
+
+section form .form-control:first-child input {
+font-family: "Poppins", sans-serif;
+border-radius: 5px;
+border: 1px solid #ddd;
+padding: 10px 0;
+margin-bottom: 10px;
+text-indent: 16px;
+width: 100%;
+color: orangered;
+outline: none;
+}
+
+section form .form-control:first-child input[type="submit"] {
+display: block;
+text-align: center;
+width: 100%;
+border: none;
+outline: none;
+cursor: pointer;
+background-color: yellow;
+color: white;
+transition: 0.5s;
+}
+
+section form .form-control:first-child input[type="submit"]:hover {
+background-color: lightblue;
+}
+
+section form .form-control:first-child h2 {
+width: 100%;
+font-weight: 400;
+font-size: 26px;
+}
+section form .form-control:first-child p {
+font-size: 15px;
+margin-bottom: 20px;
+}
+
+section form .form-control:first-child span {
+font-size: 13px;
+display: block;
+text-align: right;
+margin-bottom: 20px;
+}
+
+section form .form-control:first-child div {
+position: relative;
+}
+
+section form .form-control:first-child .icon {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: 1rem;
+cursor: pointer;
+}
+
+section form .form-control:last-child {
+text-align: center;
+}
+
+section form .form-control:last-child p {
+position: relative;
+display: inline-block;
+font-size: 14px;
+}
+
+section form .form-control:last-child p::after {
+content: "";
+position: absolute;
+right: -50px;
+top: 50%;
+transform: translateY(-50%);
+width: 40px;
+height: 2px;
+background-color: #ddd;
+}
+
+section form .form-control:last-child p::before {
+content: "";
+position: absolute;
+left: -50px;
+top: 50%;
+transform: translateY(-50%);
+width: 40px;
+height: 2px;
+background-color: #ddd;
+}
+
+section form .form-control:last-child .icons {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 20px;
+}
+
+section form .form-control:last-child .icon {
+cursor: pointer;
+}
+
+section form .form-control:last-child .icon:not(:last-child) {
+margin-right: 15px;
+}
+
+
+
+section .container .signup {
+pointer-events: none;
+}
+
+section .container.active .signup {
+pointer-events: initial;
+}
+
+section .container .signup .form-box {
+top: 100%;
+}
+
+section .container.active .signup .form-box {
+top: 0;
+}
+
+section .container .signup .img-box {
+top: -100%;
+}
+
+section .container.active .signup .img-box {
+top: 0;
+}
+
+section .container .login .form-box {
+top: 0;
+}
+
+section .container.active .login .form-box {
+top: 100%;
+}
+
+section .container .login .img-box {
+top: 0;
+}
+
+section .container.active .login .img-box {
+top: -100%;
+}
+
+@media (max-width: 996px) {
+section .container {
+max-width: 400px;
+}
+
+section .container .img-box {
+display: none;
+}
+
+section .container .form-box {
+width: 100%;
+}
+
+section .container.active .login .form-box {
+top: -100%;
+}
+}
+
+@media (max-width: 567px) {
+section {
+padding: 0 30px;
+}
+}
+
+   </style>
+    <title>Sign Up | Login Form</title>
+  </head>
+  <body>
+    <section class="{{ page }}">
+      <div class="container {{ page }}">
+        <div class="user login">
+          <div class="img-box">
+            <img src="https://image.shutterstock.com/image-vector/man-key-near-computer-account-260nw-1499141258.jpg" alt="" />
+          </div>
+          <div class="form-box">
+            <div class="top">
+              <p>
+                Not a member?
+                <span data-id="#ff0066">Register now</span>
+              </p>
+            </div>
+            <form action="{% url 'sign-in' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-control">
+                <h2>Hello Again!</h2>
+                <p>Welcome back you've been missed.</p>
+                
+                <input type="text"  name="email" placeholder="Enter email" />
+                <div>
+                  <input type="password" name="password" placeholder="Password" />
+                  <div class="icon form-icon">
+                    <img src="https://st2.depositphotos.com/1036149/7115/i/600/depositphotos_71153227-stock-photo-fun-cartoon-superhero.jpg" alt="image" />
+                    <!-- <i class="fa-brands fa-facebook"></i> -->
+                 </div>
+                
+                <span>Recovery Password</span>
+                <input type="Submit" value="Login" /><a href="{% url 'editor' %}"></a>
+              </div>
+              <div class="form-control">
+                <p>Or continue with</p>
+                <div class="icons">
+
+                  <div class="icon">
+                    <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png" alt="google" /> -->
+                    <i class="fa-brands fa-google"></i>
+                  </div>
+                 <div class="icon">
+                    <!-- <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="facebook" /> -->
+                    <i class="fa-brands fa-facebook"></i>
+                  </div>
+                  
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        
+        <div class="user signup">
+          <div class="form-box">
+            <div class="top">
+              <!-- <p> 
+                Already a member?
+                <span data-id="#1a1aff">Login now</span>
+              </p>  -->
+            </div>
+            <form action="{% url 'sign-up' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-control">
+                <h2>Welcome!</h2>
+                <p>It's good to have you.</p>
+                <input type="text"  name="fname" placeholder="Enter firstname" />
+                <input type="text"  name="lname" placeholder="Enter lastname" />
+                <input type="email"  name="email" placeholder="Enter Email" />
+                <div>
+                  <input type="password"  name="password"  placeholder="Password" />
+                  <div class="icon form-icon">
+                    <img src="https://st2.depositphotos.com/1036149/7115/i/600/depositphotos_71153227-stock-photo-fun-cartoon-superhero.jpg" alt="" />
+                  </div>
+                </div>
+                <div>
+                  <input type="password"  name="cpassword" placeholder="Confirm Password" /> 
+
+                  <p>
+                    Already a member?
+                    <span data-id="#1a1aff">Login now</span>
+                  </p>
+
+                  <div class="icon form-icon">
+                    <img src="https://st2.depositphotos.com/1036149/7115/i/600/depositphotos_71153227-stock-photo-fun-cartoon-superhero.jpg" alt="" />
+                  </div>
+
+                </div>
+                <input type="Submit" value="Register" />
+              </div>
+              <div class="form-control">
+                <p>Or continue with</p>
+                <div class="icons">
+
+                  <div class="icon">
+                    <!-- <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="facebook" /> -->
+                    <i class="fa-brands fa-facebook"></i>
+                  </div>
+                  <div class="icon">
+                    <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png" alt="google" /> -->
+                    <i class="fa-brands fa-google"></i>
+                  </div>
+                  
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="img-box">
+            <img src="https://image.scoopwhoop.com/q30/s4.scoopwhoop.com/anj/animated/771703175.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>const container = document.querySelector(".container");
+        const inputs = document.querySelectorAll(".form-box input[type = 'password']");
+        const icons = [...document.querySelectorAll(".form-icon")];
+        const spans = [...document.querySelectorAll(".form-box .top span")];
+        const section = document.querySelector("section");
+        
+        spans.map((span) => {
+          span.addEventListener("click", (e) => {
+            const color = e.target.dataset.id;
+            container.classList.toggle("active");
+            section.classList.toggle("active");
+            document.querySelector(":root").style.setProperty("--custom", color);
+          });
+        });
+        
+        Array.from(inputs).map((input) => {
+          icons.map((icon) => {
+            icon.innerHTML = `<img src="./images/eye.svg" alt="" />`;
+        
+            icon.addEventListener("click", () => {
+              const type = input.getAttribute("type");
+              if (type === "password") {
+                input.setAttribute("type", "text");
+                icon.innerHTML = `<img src="./images/hide.svg" alt="" />`;
+              } else if (type === "text") {
+                input.setAttribute("type", "password");
+                icon.innerHTML = `<img src="./images/eye.svg" alt="" />`;
+              }
+            });
+          });
+        });
+
+
+    </script>
+    <script src="https://kit.fontawesome.com/62b30a2462.js" crossorigin="anonymous"></script>
+  </body>
+</html>

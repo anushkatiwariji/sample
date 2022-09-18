@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <style>
+      .button {
+        background-color: #155DE9;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        font-family: 'Arial';
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = () => {
+        CKEDITOR.replace("editor1");
+      };
+
+      function sendText() {
+        window.parent.postMessage(CKEDITOR.instances.CK1.getData(), "*");
+      }
+    </script>
+  </head>
+  <body>
+    <textarea name="editor1" id="CK1"></textarea>
+    <br>
+    <button class="button" onclick="sendText()"><a href="{% url 'blog-form' %}">Submit text</a></button>
+  </body>
+</html>

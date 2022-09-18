@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="{% static 'webapp/style.css' %}">
+    <link rel="stylesheet" href="css/mobile.css">
+    <title>iBlog - Heaven for bloggers</title>
+</head>
+
+<body>
+    <nav class="navigation max-width-1 m-auto">
+        <div class="nav-left">
+            <!-- <a href="/">
+                <span><img src="images/vblog.jpg" width="180px" alt="yfu" style="border-radius: 50px;"></span>
+            </a> -->
+            
+            <ul>
+                <li><a href="{% url 'home' %}"  class="btn">Home</a></li>
+                <li><a href="{% url 'about' %}" class="btn">About</a></li>
+                <!-- <li><a href="/contact.html" class="btn">Contact</a></li> -->
+                
+
+
+            </ul>
+        </div>
+        
+
+        <h3 id="DarkModetext"></h3>
+            <button onclick="darkMode()"><i class="fa-solid fa-moon"></i></button>
+            <button onclick="lightMode()"><i class="fa-solid fa-sun"></i></button>
+            <script>
+              function darkMode() {
+                var element = document.body;
+                var content = document.getElementById("DarkModetext");
+                element.className = "dark-mode";
+                // content.innerText = "Dark Mode is ON";
+              }
+              function lightMode() {
+                var element = document.body;
+                var content = document.getElementById("DarkModetext");
+                element.className = "light-mode";
+                // content.innerText = "Dark Mode is OFF";
+              }
+            </script>
+
+
+
+        <div class="nav-right">
+            <a href="{% url 'sign-up' %}" class="btn" style="color: black;">Create Blog</a>
+            <div class="dropdown">
+                
+                <i class="fa- solid fa-magnifying-glass"></i>
+                  
+            <form action="{% url 'search' %}" method="get">
+                <input class="form-input" type="text" name="query" placeholder="Article Search">
+                <!-- <div class="dropdown"> -->
+                    <!-- <button class="dropbtn">
+                      <i class="fa fa-caret-down"></i>
+                    </button> -->
+                    <div class="dropdown-content">
+                      <a href="{% url 'blogpage' %}">Sports</a>
+                      <a href="#">Nature</a>
+                      <a href="#">Fashion</a>
+                    </div>
+                  </div> 
+              
+            </form>
+
+        </div>
+
+    </nav>
+    <div class="max-width-1 m-auto">
+        <hr>
+    </div>
+    <div class="m-auto content max-width-1 my-2">
+        <div class="content-left">
+            <h1>The heaven for bloggers</h1>
+            <p>vblog is a website which lets you submit an article which upon approval will be up on our website and you
+                can get a good amount of reach from here!</p>
+            <p>A blog is merely a tool that let's you do anything from "change the world" to "share your list"</p>
+            <p>The currency of blogging is authenticity and trust</p>
+            <p>"Your relationship with these blogs and bloggers does not  end once you have got the post published; you have just developed some exceptional business, contacts!!
+            Keep in touch with them and offer to write another guest post for them after some time has passed ....."</p>
+        </div>
+        <!-- <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <h1>John Doe</h1> 
+                <p>Architect & Engineer</p> 
+                <p>We love that guy</p>
+              </div>
+            </div>
+          </div> -->
+        <div class="content-right">
+            <img src="https://thumbs.dreamstime.com/b/springtime-desktop-workspace-blog-header-overhead-flat-lay-spring-theme-peonies-sunhat-laptop-stylish-white-marble-196463751.jpg" alt="iBlog">
+        </div>
+    </div>
+
+    <div class="max-width-1 m-auto">
+        <hr>
+    </div>
+    <div class="home-articles max-width-1 m-auto font2">
+        <h2> POPULAR Articles</h2>
+        <!-- <div class="year-box adjust-year">
+            <div>
+                <h3>Year </h3>
+            </div>
+            <div>
+                <input type="radio" name="year" id=""> 2020
+            </div>
+            <div>
+                <input type="radio" name="year" id=""> 2021
+            </div>
+        </div> -->
+        <div class="card"> 
+        <div class="home-article">
+            <div class="home-article-img">
+                <img src="https://image.shutterstock.com/image-vector/color-sport-background-football-basketball-260nw-1315841180.jpg" alt="article" style="border-radius: 20px;">
+            </div>
+            <div class="home-article-content font1">
+                <a href="{% url 'blogpage' %}">
+                    <h3>"Age is no barrier. It's limitation you put on your mind"</h3> 
+                </a>
+
+                <div>JACKIE JOYNER-KERSEE</div>
+                <span>07 January | 10 min read</span><br>
+                <!-- <i class="fa-solid fa-heart" style="cursor: pointer;" ></i> -->
+                <a href="#" class="like-button">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+                    </a>
+                    <a href="#"  class="open-button">share</a>
+                    <a href="{% url 'blogpage' %}"  class="open-button">open</a>
+            </div>
+        </div>
+    </div>
+     <div class="card"> 
+        <div class="home-article">
+            <div class="home-article-img">
+                <img src="https://assets.hongkiat.com/uploads/100-absolutely-beautiful-nature-wallpapers-for-your-desktop/blue-sea-sunset.jpg" alt="article" style="border-radius: 35px;">
+            </div>
+            <div class="home-article-content font1">
+                <a href="">
+                    <h3>"The poetry of earth is never dead"</h3>
+                </a>
+
+                <div>Angie Weiland Crosby</div>
+                <span>07 March | 6 min read</span><br>
+                <a href="#" class="like-button">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+                    </a>
+                    <a href="#"  class="open-button">share</a>
+                    <a href="/"  class="open-button">open</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card"> 
+        <div class="home-article">
+            <div class="home-article-img">
+                <img src="https://thumbs.dreamstime.com/z/fashion-model-brunette-woman-colorful-bright-neon-lights-posing-studio-beautiful-sexy-girl-trendy-glowing-makeup-metallic-128102636.jpg" alt="article" style="border-radius: 20px;">
+            </div>
+            <div class="home-article-content font1">
+                <a href="images/download (1).jpg">
+                    <h3>"People will stare. Make it worth their while"</h3>
+                </a>
+
+                <div>Bill Cunningham</div>
+                <span>23 September | 6 min read</span><br>
+                <a href="#" class="like-button">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+                    </a>
+                    <a href="#"  class="open-button">share</a>
+                    <a href="/"  class="open-button">open</a>
+            </div>
+        </div>
+    </div>
+        <div class="card"> 
+        <div class="home-article">
+            <div class="home-article-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWWoy93ToNoJ2-ErUYwx4G7fHOamCr17f9TvOo80Eu&s.jpg" alt="article" style="border-radius: 20px;">
+            </div>
+            <div class="home-article-content font1">
+                <a href="images/download (2).jpg">
+                    <h3>"It's not that we use technology, we live technology"</h3>
+                </a>
+
+                <div>Godfrey Reggion</div>
+                <span>20 march | 15 min read</span><br>
+                <a href="#" class="like-button">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+                    </a>
+                    <a href="#"  class="open-button">share</a>
+                    <a href="/"  class="open-button">open</a>
+            </div>
+        </div> 
+    </div>
+        <div class="card"> 
+        <div class="home-article">
+            <div class="home-article-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe_scaNxSm_GAiuZs0vT-mFShyDe9lejGFUg&usqp=CAU.jpg" alt="article">
+            </div>
+            <div class="home-article-content font1">
+                <a href="https://image.shutterstock.com/image-vector/color-sport-background-football-basketball-260nw-1315841180.jpg" style="border-radius: 20;"></a>
+                    <h3>"The fault, dear Brutus is not in our stars, but in ourselves" </h3>
+                </a>
+
+                <div>Willian Shakespeare</div>
+                <span>09 april | 34 min read</span><br>
+                <a href="#" class="like-button">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+                    </a>
+                    <a href="#"  class="open-button">share</a>
+                    <a href="/"  class="open-button">open</a>
+            </div>
+        </div>
+    </div>
+         <div class="card"> 
+        <div class="home-article">
+            <div class="home-article-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-F0Lg9hZKZw9yBuQeDUHmM0l-SPcAy8YHWA&usqp=CAU.jpg" alt="article" style="border-radius: 20px;">
+            </div>
+            <div class="home-article-content font1">
+                <a href="/blogpost.html">
+                    <h3>"Try and fail but never fail to try"</h3>
+                </a>
+
+                <div>Rihanna </div>
+                <span>11 February | 15 min read</span><br>
+                <a href="#" class="like-button">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+                    </a>
+                    <a href="#"  class="open-button">share</a>
+                    <a href="/"  class="open-button">open</a>
+                   
+                    
+            </div>
+        </div>
+    </div>
+
+    </div>
+    
+    <br><br>
+    <br></br>
+    <div class="slideshow-container">
+
+        <div class="mySlides">
+          <q>"content is king, but distribution is queen and she wears the pants."</q>
+          <p class="author">- John Keats</p>
+        </div>
+        
+        <div class="mySlides">
+          <q>"blogging is just writing---- writing using a particularly efficient type of publishing technology."</q>
+          <p class="author">- Ernest Hemingway</p>
+        </div>
+        
+        <div class="mySlides">
+          <q>" we must not only blog what is popular."
+              we must blog about our passions ,<i>no matter how quaint.</i>
+              this is true empowerment.""\
+        
+        
+            </q>
+          <p class="author">- Thomas A. Edison</p>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        
+        <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+
+        
+<br></br> 
+<br></br>
+<br></br>
+
+
+
+
+
+<!-- <footer class="footer section">
+
+    <div class="footer-container container d-grid">
+        
+        <div class="company-data">
+            <a href="./index.html">
+                <h2 class="logo">NewsFlash</h2>
+            </a>
+            <p class="company-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, iure. Harum, animi dolores, nam, ad magni expedita.</p>
+            
+            <ul class="list social-media">
+                <li class="list-item">
+                    <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link"><i class="ri-pinterest-line"></i></a>
+                </li>
+            </ul>
+
+            <span class="copyright-notice">&copy;2021 NewsFlash. All rights reserved.</span>
+        </div>
+
+        <div>
+            <h6 class="title footer-title">Categories</h6>
+            
+            <ul class="footer-list list">
+                <li class="list-item">
+                    <a href="#" class="list-link">Travel</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Food</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Technology</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Health</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Nature</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Fitness</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div>
+            <h6 class="title footer-title">Useful links</h6>
+            
+            <ul class="footer-list list">
+                <li class="list-item">
+                    <a href="#" class="list-link">Home</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Elements</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Tags</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Authors</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Membership</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div>
+            <h6 class="title footer-title">Company</h6>
+            
+            <ul class="footer-list list">
+                <li class="list-item">
+                    <a href="#" class="list-link">Contact us</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">F.A.Q</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Careers</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Authors</a>
+                </li>
+                <li class="list-item">
+                    <a href="#" class="list-link">Memberships</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    
+</footer> -->
+    <footer>
+        
+
+       <h1 style="color: white;">Team Members</h1>
+        
+        <ul class="footer-list">
+            <li class="list-item">
+               <h3 style="color: white;">Anushka Panicker</h3> 
+            </li>
+            <li >
+                <h3 style="color: white;">Anushka Tiwari</h3> 
+            </li>
+            <li clas="list-item">
+                <h3 style="color: white;">Aaditya Shah</h3> 
+            </li>
+            <li class="list-item">
+                <h3 style="color: white;">Aashka Jain</h3> 
+            </li>
+            <!-- <li class="list-item">
+                <a href="#" class="list-link">Memberships</a>
+            </li> -->
+        </ul>
+        
+        <div class="social">
+           <a href="#"><i class="fa-brands fa-google"></i></a>
+           
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        
+    </footer>
+    
+    <script> 
+        let button = document.querySelector(".like-button");
+
+button.addEventListener("click", function(e) {
+e.preventDefault();
+this.classList.toggle("active");
+this.classList.add("animated");
+generateClones(this);
+});
+
+
+function generateClones(button) {
+let clones = randomInt(2, 4);
+for (let it = 1; it <= clones; it++) {
+let clone = button.querySelector("svg").cloneNode(true),
+size = randomInt(5, 16);
+button.appendChild(clone);
+clone.setAttribute("width", size);
+clone.setAttribute("height", size);
+clone.style.position = "absolute";
+clone.style.transition =
+"transform 0.5s cubic-bezier(0.12, 0.74, 0.58, 0.99) 0.3s, opacity 1s ease-out .5s";
+let animTimeout = setTimeout(function() {
+clearTimeout(animTimeout);
+clone.style.transform =
+"translate3d(" +
+(plusOrMinus() * randomInt(10, 25)) +
+"px," +
+(plusOrMinus() * randomInt(10, 25)) +
+"px,0)";
+clone.style.opacity = 0;
+}, 1);
+let removeNodeTimeout = setTimeout(function() {
+clone.parentNode.removeChild(clone);
+clearTimeout(removeNodeTimeout);
+}, 900);
+let removeClassTimeout = setTimeout( function() {
+button.classList.remove("animated")
+}, 600);
+}
+}
+
+
+function plusOrMinus() {
+return Math.random() < 0.5 ? -1 : 1;
+}
+
+function randomInt(min, max) {
+return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+    </script>
+   <script src="https://kit.fontawesome.com/62b30a2462.js" crossorigin="anonymous"></script>
+    <!-- <div class="footer">
+        <p>Copyright &copy; iBlog.com </p>
+        <a href="https://www.vecteezy.com/free-vector/typewriter">Vector Credits: Vecteezy</a>
+    </div> -->
+</body>
+
+</html>
